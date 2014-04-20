@@ -3,49 +3,39 @@
 <head>
 	<title>Schools</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="jumbotron">
 		<h1>My Student Portfolio</h1>
-		<p>It's your time to shine! Create a complete profile of your education for colleges and employers to get a full picture of you!</p>
+		<h3>My Education</h3>
+		<p>You're an academic superstar! Create a complete profile of your education for colleges and employers to get a full picture of you!</p>
 
-		<ul>
+		<b>Here's an example.</b> <%= @example_schools %>
+
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
 			<% @schools.each do |school| %>
-			<li><%= school.description %>&nbsp;<%= school.date %> - <a href="/<%= school.id %>/edit">Edit</a></li>
+			<span class="label label-primary"><%= school.level %></span> &nbsp;&nbsp;<%= school.name %>&nbsp;<%= school.date %> - <a href="/student/schools/<%= school.id %>/edit">Edit</a><br>
 			<% end %>
-		</ul>
+		</p></h4>
 
-		<form action="/schools" method="post">
-			<div class="dropdown">
-			  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    Dropdown
-			  <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Elementary</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Middle School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">High School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">College</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Graduate</a>
-			    </li>
-			  </ul>
-			</div>
-			<input type="text" id="description" name="description" class="form-control" placeholder="Add Your Education">
-			<br>
-			<input type="date" id="date" name="date" value="mm-dd-yyyy"  class="form-control" placeholder="Task Date">
-			<br>
-			<br>
-			<p><input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Add Education Now"></a></p>
-		</form>
+		<br>
+		<br>	
+		<a href="/student/schools/edit"><button type="button" class="btn btn-primary btn-lg btn-block">Edit School</button></a>
+		<br>
+		<br>
+		<form action="/student/schools/<%= @school.id %>" method="post">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Delete School"></a>
+		</form> 
+		<br>
+		<br>
+		<a href="/student/schools/new"><button type="button" class="btn btn-primary btn-lg btn-block">Add New School</button></a>
+		<br>
+		<br>
+
 	</div>
 </body>
 </html>

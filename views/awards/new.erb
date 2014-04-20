@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Add New Awards</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Student Portfolio</h1>
+		<h3>My Awards</h3>
+		<p>You're a ninja when it comes to winning! Create a complete profile of your awards and accomplishments for colleges and employers to get a full picture of you!</p>
+		<p>Instructions: Add the awards or recognitions you have received so far.</p>
+
+		<b>Here's an example.</b> <%= @example_awards %>
+		
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<form role="form" action="/awards" method="post">
+			<div class="form-group">
+		    <label for="exampleInputAward">Your Award Name</label>
+		    <input type="text" id="name" name="awards[name]" class="form-control" placeholder="Your Award Name" value="<%= @new_award.name %>">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputOrganization">Your Awarding Organization</label>
+		    <input type="text" id="organization" name="awards[organization]" class="form-control" placeholder="Your Awarding Organization" value="<%= @new_award.organization %>">
+		  </div>
+		  <div class="form-group">
+		  	<label for="exampleInputAward">Your Award Description</label>
+		    <input type="text" id="description" name="awards[description]" class="form-control" placeholder="Your Award Description" value="<%= @new_award.description %>">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputAwardDate">Award Date</label>
+		    <input type="date" id="date" name="awards[date]" class="form-control" placeholder="mm-yyyy" value="<%= @new_award.date %>">
+		  </div>
+<!-- 		  <div class="form-group">
+		    <label for="exampleInputFile">Documentation</label>
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Please upload a PDF documenting your award.</p>
+		  </div> -->
+<!-- 		  <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Check me out
+		    </label>
+		  </div> -->
+		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Add Award Now">
+		</form>
+
+		<a href="/student/awards"><button type="button" class="btn btn-primary btn-lg btn-block">Not now. I'll add an award later.</button></a>
+
+	</div>
+</body>
+</html>

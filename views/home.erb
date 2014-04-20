@@ -9,25 +9,30 @@
 		<h1>My Student Portfolio</h1>
 		<p>Welcome to your student portfolio! </p>
 		<p>Create a complete student profile showcasing your accomplishments and experiences for colleges and employers to get a full picture of you!</p>
-		<br>
-		<br>
-		<ul>
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+		
+		<h2>My Education</h2>
+		<h4><p style="line-height:1.5">
 			<% @schools.each do |school| %>
-			<li><%= schools.description %>&nbsp;<%= schools.date %> - <a href="/<%= schools.id %>/edit">Edit</a></li>
+			<span class="label label-primary"><%= school.level %></span> &nbsp;&nbsp;<%= school.name %>&nbsp;<%= school.date %> - <a href="/student/schools/<%= school.id %>/edit">Edit</a><br>
 			<% end %>
-		</ul>
+		</p></h4>
+		<br>
 
-		<ul>
+		<h2>My Awards</h2>
+		<h4><p style="line-height:1.5">
 			<% @awards.each do |award| %>
-			<li><%= award.description %>&nbsp;<%= award.date %> - <a href="/<%= award.id %>/edit">Edit</a></li>
+			<span class="label label-primary"><%= award.name %></span> &nbsp;&nbsp;<%= award.organization %> - <%= award.description %>&nbsp;<%= award.date %> - <a href="/student/awards/<%= award.id %>/edit">Edit</a><br>
 			<% end %>
-		</ul>
+		</p></h4>
 
-		<a href="/student/schools"><button type="button" class="btn btn-primary btn-lg btn-block">Add Education Now</button></a>
+		<br>
+		<br>
+		<a href="/student/schools"><button type="button" class="btn btn-primary btn-lg btn-block">Go to My Schools</button></a>
 
 		<br>
 
-		<a href="/student/awards"><button type="button" class="btn btn-primary btn-lg btn-block">Add Awards Now</button></a>
+		<a href="/student/awards"><button type="button" class="btn btn-primary btn-lg btn-block">Go to My Awards</button></a>
 
 	</div>
 </body>

@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Edit</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Student Portfolio</h1>
+		<h3>My Awards</h3>
+		<p>You're a ninja when it comes to winning! Create a complete profile of your awards and accomplishments for colleges and employers to get a full picture of you!</p>
+		<p>Instructions: Add the awards or recognitions you have received so far.</p>
+
+		<b>Here's an example.</b> <%= @example_awards %>
+
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<form action="/awards/<%= @award.id %>" method="post"> <!-- server endpoint for the information. redirect: then you have to tell where to send the client. -->
+			<input type="hidden" name="_method" value="put" />
+				<div class="form-group">
+		    	<label for="exampleInputAward">Your Award Name</label>
+		   	 	<input type="text" id="name" name="award[name]" class="form-control" placeholder="Your Award Name" value="<%= @award.name %>">
+		  	</div>
+		  	<div class="form-group">
+		    <label for="exampleInputOrganization">Your Awarding Organization</label>
+		    	<input type="text" id="organization" name="award[organization]" class="form-control" placeholder="Your Awarding Organization" value="<%= @award.organization %>">
+		  	</div>
+		  	<div class="form-group">
+		  		<label for="exampleInputAward">Your Award Description</label>
+		    	<input type="text" id="description" name="award[description]" class="form-control" placeholder="Your Award Description" value="<%= @award.description %>">
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="exampleInputAwardDate">Award Date</label>
+		 		  <input type="date" id="date" name="award[date]" class="form-control" placeholder="mm-yyyy" value="<%= @award.date %>">
+		  	</div>
+<!-- 		  <div class="form-group">
+		    <label for="exampleInputFile">Documentation</label>
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Please upload a PDF documenting your award.</p>
+		  </div> -->
+<!-- 		  <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Check me out
+		    </label>
+		  </div> -->
+		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Submit Edit">
+		</form>
+
+		<form action="/awards/<%= @award.id %>" method="post">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Delete Award"></a>
+		</form> 
+
+		<a href="/student/awards"><button type="button" class="btn btn-primary btn-lg btn-block">Nevermind. Let's not make changes.</button></a>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Awards</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Student Portfolio</h1>
+		<h3>My Awards</h3>
+		<p>You're a ninja when it comes to winning! Create a complete profile of your awards and accomplishments for colleges and employers to get a full picture of you!</p>
+
+		<b>Here's an example.</b> <%= @example_awards %>
+
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
+			<% @awards.each do |award| %>
+			<span class="label label-primary"><%= award.name %></span>&nbsp;&nbsp; <%= award.organization %> - <%= award.description %>&nbsp;<%= award.date %> - <a href="/student/awards/<%= award.id %>/edit">Edit</a><br>
+			<% end %>
+		</p></h4>
+
+		<br>
+		<br>	
+		<a href="/student/awards/edit"><button type="button" class="btn btn-primary btn-lg btn-block">Edit Award</button></a>
+		<br>
+		<br>
+		<form action="/student/awards/<%= @award.id %>" method="post">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Delete Award"></a>
+		</form> 
+		<br>
+		<br>
+		<a href="/student/awards/new"><button type="button" class="btn btn-primary btn-lg btn-block">Add New Award</button></a>
+		<br>
+		<br>
+
+	</div>
+</body>
+</html>

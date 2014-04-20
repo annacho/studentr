@@ -11,60 +11,21 @@
 		<h3>My Education</h3>
 		<p>You're an academic superstar! Create a complete profile of your education for colleges and employers to get a full picture of you!</p>
 
-		<ul>
-			<% @schools.each do |school| %>
-			<li><%= school.description %>&nbsp;<%= school.date %> - <a href="/<%= school.id %>/edit">Edit</a></li>
+		<b>Here's an example.</b> <%= @example_schools %>
+		
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
+			<% @schools.each do |school| %> <!-- refers to item in collection or block (table and class). class corresponds to table.class is capital and refers to concept of school). item = instance, record. schools refers to collection -->
+			<span class="label label-primary"><%= school.level %></span> &nbsp;&nbsp;<%= school.name %>&nbsp;<%= school.date %> - <a href="/student/schools/<%= school.id %>/edit">Edit</a><br>
 			<% end %>
-		</ul>
+		</p></h4>
 
-		<form role="form" action="/student/schools" method="post">
-			<div class="form-group">
-		    <label for="exampleInputEducation">Your Education Level</label>
-		    <input type="text" id="level" name="level" class="form-control" placeholder="Elementary School, Middle School, High School, College, Graduate Levels">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEducation">Your Educational Institution</label>
-		    <input type="text" id="name" name="name" class="form-control" placeholder="Your School Name">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputDate">Graduation Date</label>
-		    <input type="date" id="date" name="date" value="mm-yyyy"  class="form-control" placeholder="mm-yyyy">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputFile">Official Transcript</label>
-		    <input type="file" id="exampleInputFile">
-		    <p class="help-block">Please upload a PDF documenting your academic performance.</p>
-		  </div>
-<!-- 		  <div class="checkbox">
-		    <label>
-		      <input type="checkbox"> Check me out
-		    </label>
-		  </div> -->
-		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Add Education Now">
-		</form>
-
-<!-- 			<div class="dropdown">
-			  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    Dropdown
-			  <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Middle School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">High School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">College</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Graduate</a>
-			    </li>
-			  </ul>
-			</div> -->
-
+		<br>
+		<br>	
+		<a href="/student/schools/new"><button type="button" class="btn btn-primary btn-lg btn-block">Add New School</button></a>
+		<br>
+		<a href="/student"><button type="button" class="btn btn-primary btn-lg btn-block">Go to Home Page</button></a>
+	</div>
 </body>
 </html>

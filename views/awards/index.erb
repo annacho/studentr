@@ -9,66 +9,23 @@
 	<div class="jumbotron">
 		<h1>My Student Portfolio</h1>
 		<h3>My Awards</h3>
-		<p>It's time to flatter yourself! Create a complete profile of your awards for colleges and employers to get a full picture of you!</p>
+		<p>You're a ninja when it comes to winning! Create a complete profile of your awards and accomplishments for colleges and employers to get a full picture of you!</p>
 
-		<ul>
+		<b>Here's an example.</b> <%= @example_awards %>
+		
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
 			<% @awards.each do |award| %>
-			<li><%= award.description %>&nbsp;<%= award.date %> - <a href="/<%= award.id %>/edit">Edit</a></li>
+			<span class="label label-primary"><%= award.name %></span> &nbsp;&nbsp;<%= award.organization %> - <%= award.description %>&nbsp;<%= award.date %> - <a href="/student/awards/<%= award.id %>/edit">Edit</a><br>
 			<% end %>
-		</ul>
+		</p></h4>
 
-		<form role="form" action="/student/awards" method="post">
-			<div class="form-group">
-		    <label for="exampleInputAward">Your Award Name</label>
-		    <input type="text" id="name" name="name" class="form-control" placeholder="Your Award Name">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputOrganization">Your Awarding Organization</label>
-		    <input type="text" id="organization" name="organization" class="form-control" placeholder="Your Awarding Organization">
-		  </div>
-		  <div class="form-group">
-		  	<label for="exampleInputAward">Your Award Description</label>
-		    <input type="text" id="description" name="description" class="form-control" placeholder="Your Award Description">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputAwardDate">Award Date</label>
-		    <input type="date" id="date" name="date" value="mm-yyyy"  class="form-control" placeholder="mm-yyyy">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputFile">Documentation</label>
-		    <input type="file" id="exampleInputFile">
-		    <p class="help-block">Please upload a PDF documenting your award.</p>
-		  </div>
-<!-- 		  <div class="checkbox">
-		    <label>
-		      <input type="checkbox"> Check me out
-		    </label>
-		  </div> -->
-		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Add Award Now">
-		</form>
-
-<!-- 			<div class="dropdown">
-			  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    Dropdown
-			  <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Middle School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">High School</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">College</a>
-			    </li>
-			    <li role="presentation">
-			    	<a role="menuitem" tabindex="-1" href="#">Graduate</a>
-			    </li>
-			  </ul>
-			</div> -->
-
+		<br>
+		<br>	
+		<a href="/student/awards/new"><button type="button" class="btn btn-primary btn-lg btn-block">Add New Award</button></a>
+		<br>
+		<a href="/student"><button type="button" class="btn btn-primary btn-lg btn-block">Go to Home Page</button></a>
+	</div>
 </body>
 </html>

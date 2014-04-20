@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Edit</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Student Portfolio</h1>
+		<h3>My Education</h3>
+		<p>You're an academic superstar! Create a complete profile of your education for colleges and employers to get a full picture of you!</p>
+
+		<b>Here's an example.</b> <%= @example_schools %>
+		
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<form action="/schools/<%= @school.id %>" method="post"> <!-- server endpoint for the information. redirect: then you have to tell where to send the client. -->
+		<input type="hidden" name="_method" value="put" />
+			<div class="form-group">
+		    <label for="exampleInputEducation">Your Education Level</label>
+		    <input type="text" id="level" name="school[level]" class="form-control" placeholder="Elementary School, Middle School, High School, College, Graduate Levels" value="<%= @school.level %>">
+		  </div> 
+		  <div class="form-group">
+		    <label for="exampleInputEducation">Your Educational Institution</label>
+		    <input type="text" id="name" name="school[name]" class="form-control" placeholder="Your School Name" value="<%= @school.name %>">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputDate">Graduation Date</label>
+		    <input type="date" id="date" name="school[date]" value="mm-yyyy"  class="form-control" placeholder="mm-yyyy" value="<%= @school.date %>">
+		  </div>
+<!-- 		  <div class="form-group"> # storage place, parsing
+		    <label for="exampleInputFile">Official Transcript</label>
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Please upload a PDF documenting your academic performance.</p>
+		  </div> -->
+<!-- 		  <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Check me out
+		    </label>
+		  </div> -->
+		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Submit Edit">
+		</form>
+
+	<form action="/schools/<%= @school.id %>" method="post">
+		<input type="hidden" name="_method" value="delete" />
+		<input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Delete School"></a>
+	</form> 
+
+	<a href="/student/schools"><button type="button" class="btn btn-primary btn-lg btn-block">Nevermind. Let's not make changes.</button></a>
+
+</div>
+</body>
+</html>
